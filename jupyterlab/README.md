@@ -15,6 +15,12 @@ docker build $BUILD_DIR --force-rm -t $REPO_URL:$JUPYTERLAB_VERSION
 Run:
 
 ```
+docker run -v $(pwd):/datos --name micontenedor -p 8888:8888 -d $REPO_URL:$JUPYTERLAB_VERSION
+```
+
+or:
+
+```
 docker run --rm -v $(pwd):/datos --name micontenedor -p 8888:8888 -d $REPO_URL:$JUPYTERLAB_VERSION
 ```
 
@@ -26,3 +32,18 @@ docker run --rm -v $(pwd):/datos --name micontenedor -p 8888:8888 -d $REPO_URL:$
 ```
 docker exec -it -u=miuser micontenedor bash
 ```
+
+Stop:
+
+```
+docker stop micontenedor
+```
+
+Delete (if `--rm` wasn't used):
+
+
+```
+docker rm micontenedor
+```
+
+
