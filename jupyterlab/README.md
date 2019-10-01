@@ -18,10 +18,10 @@ Run:
 docker run --rm -v $(pwd):/datos --name micontenedor -p 8888:8888 -d $REPO_URL:$JUPYTERLAB_VERSION
 ```
 
-#jupyter lab running at localhost:8888 
-#password: qwerty
+## jupyter lab running at localhost:8888 
+## password: qwerty
 
-Enter with:
+(not necessary) Enter to docker container with:
 
 ```
 docker exec -it -u=miuser micontenedor bash
