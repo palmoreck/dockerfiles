@@ -2,7 +2,7 @@ Set:
 
 ```
 JUPYTERLAB_VERSION=1.1.0
-REPO_URL=palmoreck/jupyterlab
+REPO_URL=palmoreck/jupyterlab_r_kernel
 BUILD_DIR=/home/user/midir
 ```
 
