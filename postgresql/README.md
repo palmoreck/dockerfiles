@@ -67,11 +67,11 @@ password: `postgres`
 Stop:
 
 ```
-docker stop micontenedor
+docker stop postgresql-local
 ```
 
 Delete (if --rm wasn't used):
 
 ```
-docker rm micontenedor
+docker rm postgresql-local
 ```
