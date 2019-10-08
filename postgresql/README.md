@@ -3,7 +3,7 @@ Set:
 ```
 POSTGRESQL_VERSION=12
 REPO_URL=palmoreck/postgresql
-BUILD_DIR=/Users/erick/Documents/erick/dockerfiles/postgresql/
+BUILD_DIR=/home/user/midir
 ```
 
 
