@@ -5,35 +5,36 @@ POSTGRESQL_VERSION=12
 DIST=bionic
 REPO_URL=palmoreck/postgresql
 BUILD_DIR=/home/user/midir
+MOUNT_DIR=/home/user/mimount
 ```
 
 
 Build:
 
 ```
-sudo docker build $BUILD_DIR --build-arg POSTGRESQL_VERSION=$POSTGRESQL_VERSION --force-rm -t $REPO_URL:$DIST
+sudo docker build $BUILD_DIR --build-arg POSTGRESQL_VERSION=$POSTGRESQL_VERSION --force-rm -t $REPO_URL:$DIST_$POSTGRESQL_VERSION
 ```
 
 Run:
 
 ```
-docker run -v $BUILD_DIR/etc/postgresql:/etc/postgresql \
+docker run -v $MOUNT_DIR/etc/postgresql:/etc/postgresql \
 -v $BUILD_DIR/var/log/postgresql:/var/log/postgresql \
 -v $BUILD_DIR/var/lib/postgresql:/var/lib/postgresql \
 -w /home/postgres \
 -p 2225:22 -p 5432:5432 --name postgresql-local --hostname postgresql \
--d $REPO_URL:$DIST
+-d $REPO_URL:$DIST_POSTGRESQL_VERSION
 ```
 
 or:
 
 ```
-docker run --rm -v $BUILD_DIR/etc/postgresql:/etc/postgresql \
+docker run --rm -v $MOUNT_DIR/etc/postgresql:/etc/postgresql \
 -v $BUILD_DIR/var/log/postgresql:/var/log/postgresql \
 -v $BUILD_DIR/var/lib/postgresql:/var/lib/postgresql \
 -w /home/postgres \
 -p 2225:22 -p 5432:5432 --name postgresql-local --hostname postgresql \
--d $REPO_URL:$DIST
+-d $REPO_URL:$DIST_POSTGRESQL_VERSION
 ```
 
 
