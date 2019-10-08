@@ -2,6 +2,7 @@ Set:
 
 ```
 POSTGRESQL_VERSION=12
+DIST=bionic
 REPO_URL=palmoreck/postgresql
 BUILD_DIR=/home/user/midir
 ```
@@ -10,7 +11,7 @@ BUILD_DIR=/home/user/midir
 Build:
 
 ```
-docker build $BUILD_DIR --force-rm -t $REPO_URL:$POSTGRESQL_VERSION
+sudo docker build $BUILD_DIR --build-arg POSTGRESQL_VERSION=$POSTGRESQL_VERSION --force-rm -t $REPO_URL:$DIST
 ```
 
 Run:
@@ -21,7 +22,7 @@ docker run -v $BUILD_DIR/etc/postgresql:/etc/postgresql \
 -v $BUILD_DIR/var/lib/postgresql:/var/lib/postgresql \
 -w /home/postgres \
 -p 2225:22 -p 5432:5432 --name postgresql-local --hostname postgresql \
--d $REPO_URL:$POSTGRESQL_VERSION
+-d $REPO_URL:$DIST
 ```
 
 or:
@@ -32,7 +33,7 @@ docker run --rm -v $BUILD_DIR/etc/postgresql:/etc/postgresql \
 -v $BUILD_DIR/var/lib/postgresql:/var/lib/postgresql \
 -w /home/postgres \
 -p 2225:22 -p 5432:5432 --name postgresql-local --hostname postgresql \
--d $REPO_URL:$POSTGRESQL_VERSION
+-d $REPO_URL:$DIST
 ```
 
 
