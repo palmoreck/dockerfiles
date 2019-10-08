@@ -21,7 +21,7 @@ docker run -v $BUILD_DIR/etc/postgresql:/etc/postgresql \
 -v $BUILD_DIR/var/lib/postgresql:/var/lib/postgresql \
 -w /home/postgres \
 -p 2225:22 -p 5432:5432 --name postgresql-local --hostname postgresql \
--dit $REPO_URL:$POSTGRESQL_VERSION
+-d $REPO_URL:$POSTGRESQL_VERSION
 ```
 
 or:
@@ -32,7 +32,7 @@ docker run --rm -v $BUILD_DIR/etc/postgresql:/etc/postgresql \
 -v $BUILD_DIR/var/lib/postgresql:/var/lib/postgresql \
 -w /home/postgres \
 -p 2225:22 -p 5432:5432 --name postgresql-local --hostname postgresql \
--dit $REPO_URL:$POSTGRESQL_VERSION
+-d $REPO_URL:$POSTGRESQL_VERSION
 ```
 
 
@@ -54,7 +54,7 @@ enter with:
 docker exec -it -u=postgres postgresql-local bash   
 ```
 
-and create extensions or new databases, for instance run:
+and create extensions or new databases. For instance run:
 
 
 ```
