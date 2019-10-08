@@ -12,4 +12,4 @@ psql --command "ALTER USER postgres WITH PASSWORD 'postgres';"
 #sudo /etc/init.d/postgresql restart
 #createdb $NAME_DB
 sudo /etc/init.d/postgresql stop
-sudo pg_ctlcluster 12 main start --foreground
+sudo pg_ctlcluster $POSTGRESQL_VERSION main start --foreground
