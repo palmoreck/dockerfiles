@@ -30,7 +30,7 @@ docker run --rm -v $(pwd):/datos --name jupyterlab_c_kernel_local -p 8888:8888 -
 (not necessary) Enter to docker container with:
 
 ```
-docker exec -it -u=miuser jupyterlab_r_kernel_local bash
+docker exec -it -u=miuser jupyterlab_c_kernel_local bash
 ```
 
 Stop:
