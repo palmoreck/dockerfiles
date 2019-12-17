@@ -29,20 +29,20 @@ docker run --rm -v $(pwd):/datos --name jupyterlab-numerical -p 8888:8888 -p 878
 (not necessary) Enter to docker container with:
 
 ```
-docker exec -it -u=miuser jupyterlab-local bash
+docker exec -it -u=miuser jupyterlab-numerical bash
 ```
 
 Stop:
 
 ```
-docker stop jupyterlab-local
+docker stop jupyterlab-numerical
 ```
 
 Delete (if `--rm` wasn't used):
 
 
 ```
-docker rm jupyterlab-local
+docker rm jupyterlab-numerical
 ```
 
 
