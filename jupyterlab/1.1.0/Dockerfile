@@ -1,6 +1,8 @@
 FROM ubuntu:bionic
 
 ENV JUPYTERLAB_VERSION 1.1.0
+ENV LANG C.UTF-8
+ENV LC_ALL C.UTF-8
 
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive && echo "America/Mexico_City" > /etc/timezone && apt-get install -y tzdata
 
