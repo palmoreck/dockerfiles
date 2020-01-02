@@ -22,7 +22,7 @@ RUN echo 'miuser ALL=(ALL:ALL) NOPASSWD:ALL' | (EDITOR='tee -a' visudo)
 RUN echo 'miuser:qwerty' | chpasswd
 RUN pip3 install jupyter jupyterlab==$JUPYTERLAB_VERSION --upgrade
 USER miuser
-RUN echo "export LC_ALL=C.UTF-8" >> ~/.profile && echo "export LANG=C.UTF-8" >> ~/.profile
+
 RUN pip3 install --user numpy matplotlib scipy pandas xarray --upgrade
 RUN pip3 install --user dask distributed bokeh --upgrade
 RUN pip3 install --user seaborn --upgrade
