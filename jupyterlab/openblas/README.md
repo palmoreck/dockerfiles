@@ -11,8 +11,8 @@ JUPYTERLAB_VERSION=1.1.0
 REPO_URL_BASE=palmoreck/jupyterlab_openblas_base
 REPO_URL=palmoreck/jupyterlab_openblas
 DIR=/home/<user>/<midir>/dockerfiles/
-BUILD_DIR=$DIR/jupyterlab/numerical_openblas/$JUPYTERLAB_VERSION
-BUILD_DIR_BASE=$DIR/jupyterlab/numerical_openblas/base
+BUILD_DIR=$DIR/jupyterlab/openblas/$JUPYTERLAB_VERSION
+BUILD_DIR_BASE=$DIR/jupyterlab/openblas/base
 ```
 
 ```
