@@ -1,4 +1,4 @@
-1) Build base image:
+Build base image:
 
 ```
 git clone https://github.com/palmoreck/dockerfiles.git $DIR
@@ -8,23 +8,13 @@ Set:
 
 ```
 JUPYTERLAB_VERSION=1.1.0
-REPO_URL_BASE=palmoreck/jupyterlab_openblas_base
 REPO_URL=palmoreck/jupyterlab_openblas
 DIR=/home/<user>/<midir>/dockerfiles/
 BUILD_DIR=$DIR/jupyterlab/openblas/$JUPYTERLAB_VERSION
-BUILD_DIR_BASE=$DIR/jupyterlab/openblas/base
 ```
 
 ```
-docker build $BUILD_DIR_BASE --force-rm -t $REPO_URL_BASE:$JUPYTERLAB_VERSION
-```
-
-2) Build from base image:
-
-
-```
-docker build $BUILD_DIR --build-arg JUPYTERLAB_VERSION=$JUPYTERLAB_VERSION \
---build-arg REPO_URL_BASE=$REPO_URL_BASE --force-rm -t $REPO_URL:$JUPYTERLAB_VERSION
+docker build $BUILD_DIR --force-rm -t $REPO_URL:$JUPYTERLAB_VERSION
 ```
 
 Run:
