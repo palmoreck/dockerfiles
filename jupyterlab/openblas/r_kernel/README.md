@@ -36,7 +36,7 @@ docker run --rm -v $(pwd):/datos --name jupyterlab_r_kernel_openblas -p 8888:888
 (not necessary) Enter to docker container with:
 
 ```
-docker exec -it -u=miuser jupyterlab_openblas bash
+docker exec -it -u=miuser jupyterlab_r_kernel_openblas bash
 ```
 
 Stop:
