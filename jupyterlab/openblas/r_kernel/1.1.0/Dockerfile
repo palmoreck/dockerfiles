@@ -19,6 +19,7 @@ RUN apt-get update && apt-get install -y \
                         python3-setuptools \
                         nodejs \
                         software-properties-common \
+			linux-tools-$(uname -r) linux-tools-generic \
 		        valgrind && pip3 install --upgrade pip
 
 RUN pip3.6 install jupyter jupyterlab==$JUPYTERLAB_VERSION --upgrade

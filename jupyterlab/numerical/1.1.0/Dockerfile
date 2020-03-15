@@ -11,6 +11,9 @@ RUN apt-get update && apt-get install -y \
             nano \
             less \
             git \
+	    htop \
+	    linux-tools-$(uname -r) linux-tools-generic \
+	    valgrind \
             python3-dev \
             python3-pip \
             python3-setuptools \
