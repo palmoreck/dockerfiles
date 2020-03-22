@@ -14,7 +14,6 @@ RUN apt-get update && apt-get install -y \
                         less \
                         git \
 			htop \
-                        libopenblas-dev \
                         python3-dev \
                         python3-pip \
                         python3-setuptools \
