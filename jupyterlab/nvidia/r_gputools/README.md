@@ -4,7 +4,7 @@ Set:
 JUPYTERLAB_VERSION_AND_CUDA=1.1.0_10.2
 REPO_URL=palmoreck/jupyterlab_nvidia_r_gputools
 DIR=/home/<user>/<midir>/dockerfiles/
-BUILD_DIR=$DIR/jupyterlab/openblas/$JUPYTERLAB_VERSION
+BUILD_DIR=$DIR/jupyterlab/nvidia/r_gputools/$JUPYTERLAB_VERSION_AND_CUDA
 ```
 
 Clone:
