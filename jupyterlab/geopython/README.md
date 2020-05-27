@@ -2,7 +2,7 @@ Set:
 
 ```
 JUPYTERLAB_VERSION=1.1.0
-REPO_URL=palmoreck/jupyterlab
+REPO_URL=palmoreck/jupyterlab_geopython
 DIR=/home/<user>/<midir>/dockerfiles/
 BUILD_DIR=$DIR/jupyterlab/geopython/$JUPYTERLAB_VERSION
 ```
