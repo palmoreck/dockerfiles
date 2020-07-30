@@ -4,7 +4,7 @@ Set:
 JUPYTERLAB_VERSION=2.1.4
 REPO_URL=palmoreck/jupyterlab_prope_r_kernel_tidyverse
 DIR=/home/<user>/<midir>/dockerfiles/
-BUILD_DIR=$DIR/jupyterlab/prope/$JUPYTERLAB_VERSION
+BUILD_DIR=$DIR/jupyterlab/prope_r_kernel_tidyverse/$JUPYTERLAB_VERSION
 ```
 
 Clone:
