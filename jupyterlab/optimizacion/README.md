@@ -33,6 +33,9 @@ or:
 docker run --rm -v $(pwd):/datos --name $CONTAINER_NAME -p 8888:8888 -d $REPO_URL:$JUPYTERLAB_VERSION
 ```
 
+**Note: in some systems (Windows e.g.) possibly need to use "$(pwd):/datos"**
+
+
 ## jupyter lab running at localhost:8888 , password: qwerty
 
 (not necessary) Enter to docker container with:
