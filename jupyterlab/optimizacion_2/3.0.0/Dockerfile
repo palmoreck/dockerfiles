@@ -6,8 +6,8 @@ ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEB_BUILD_DEPS="build-essential python3-dev python3-pip python3-setuptools software-properties-common libgit2-dev"
-ENV DEB_PACKAGES="sudo nano less time git nodejs curl wget htop"
-ENV PIP_PACKAGES="numpy scipy matplotlib pandas seaborn sympy cvxpy pytest dask distributed bokeh jupyter-book networkx ortools line_profiler memory_profiler psutil guppy3 cython numba"
+ENV DEB_PACKAGES="sudo nano less time git nodejs curl wget htop graphviz"
+ENV PIP_PACKAGES="numpy scipy matplotlib pandas seaborn sympy cvxpy pytest dask distributed bokeh jupyter-book networkx ortools line_profiler memory_profiler psutil guppy3 cython numba graphviz"
 
 ENV R_KEY="E19F5F87128899B192B1A2C2AD5F960A256A04AF"
 ENV R_DEB_BUILD_DEPS="buster-cran40 r-base libssl-dev libxml2-dev libcurl4-openssl-dev"
