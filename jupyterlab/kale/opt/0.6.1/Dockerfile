@@ -1,4 +1,3 @@
-#dummy line to trigger build
 FROM ubuntu:bionic
 USER root
 ENV TIMEZONE America/Mexico_City
@@ -25,7 +24,7 @@ RUN jupyter notebook --generate-config && \
     sed -i "s/#c.NotebookApp.password = .*/c.NotebookApp.password = u'sha1:115e429a919f:21911277af52f3e7a8b59380804140d9ef3e2380'/" ~/.jupyter/jupyter_notebook_config.py
         
 
-RUN pip install $PIP_PACKAGES_COMMON --upgrade
+#RUN pip install $PIP_PACKAGES_COMMON --upgrade
 RUN pip install $PIP_PACKAGES_KALE --upgrade
 RUN jupyter labextension install kubeflow-kale-labextension
 
