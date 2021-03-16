@@ -38,4 +38,4 @@ jobs:
           file: jupyterlab/kale/opt/0.6.1/Dockerfile #path in repo to Dockerfile
           platforms: linux/amd64
           push: true
-          tags: palmoreck/kale-opt:0.1
+          tags: palmoreck/kale_opt:0.1
