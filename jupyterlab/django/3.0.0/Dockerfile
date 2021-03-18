@@ -3,7 +3,8 @@ USER root
 ENV TIMEZONE America/Mexico_City
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
-ENV DEBIAN_FRONTEND noninteractive 
+ENV JUPYTERLAB_VERSION 1.1.0
+ENV DEBIAN_FRONTEND noninteractive
 ENV DEB_BUILD_DEPS="sudo nano less git wget curl python3-dev python3-pip python3-setuptools"
 ENV DEB_PACKAGES=""
 ENV PIP_PACKAGES_COMMON="django"
