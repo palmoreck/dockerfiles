@@ -1,4 +1,4 @@
-#dummy line to trigger build
+#jedi was downgraded to jedi==0.17.2, see: https://github.com/jupyter/notebook/issues/2435
 FROM ubuntu:bionic
 ENV TIMEZONE America/Mexico_City
 ENV LANG C.UTF-8
@@ -7,7 +7,7 @@ ENV JUPYTERLAB_VERSION 1.1.0
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEB_BUILD_DEPS="sudo nano less git wget curl python3-dev python3-pip python3-setuptools"
 ENV DEB_PACKAGES=""
-ENV PIP_PACKAGES_COMMON="django"
+ENV PIP_PACKAGES_COMMON="django jedi==0.17.2"
 
 RUN apt-get update && export $DEBIAN_FRONTEND && \
     echo $TIMEZONE > /etc/timezone && apt-get install -y tzdata
