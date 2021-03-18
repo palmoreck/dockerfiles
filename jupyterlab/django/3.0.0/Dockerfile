@@ -1,6 +1,5 @@
 #dummy line to trigger build
 FROM ubuntu:bionic
-USER root
 ENV TIMEZONE America/Mexico_City
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
@@ -17,8 +16,14 @@ RUN apt-get update && apt-get install -y $DEB_BUILD_DEPS $DEB_PACKAGES && pip3 i
 
 RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - && apt-get install -y nodejs
 
+RUN groupadd miuser
+RUN useradd miuser -g miuser -m -s /bin/bash
+RUN echo 'miuser ALL=(ALL:ALL) NOPASSWD:ALL' | (EDITOR='tee -a' visudo)
+RUN echo 'miuser:qwerty' | chpasswd
+
 RUN pip install jupyter jupyterlab==$JUPYTERLAB_VERSION
 
+USER miuser
 #next password is dummy
 
 RUN jupyter notebook --generate-config && \
