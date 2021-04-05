@@ -7,7 +7,7 @@ ENV JUPYTERLAB_VERSION 3.0.0
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEB_BUILD_DEPS=""
 ENV DEB_PACKAGES="sudo nano less git wget curl python3-dev python3-pip python3-setuptools postgresql-client"
-ENV PIP_PACKAGES_COMMON="psycopg2-binary django jedi==0.17.2"
+ENV PIP_PACKAGES_COMMON="numpy scipy matplotlib seaborn pandas psycopg2-binary django jedi==0.17.2"
 
 RUN apt-get update && export $DEBIAN_FRONTEND && \
     echo $TIMEZONE > /etc/timezone && apt-get install -y tzdata
