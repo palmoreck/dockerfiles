@@ -25,11 +25,10 @@ RUN jupyter notebook --generate-config && \
     sed -i "s/#c.NotebookApp.password = .*/c.NotebookApp.password = u'sha1:115e429a919f:21911277af52f3e7a8b59380804140d9ef3e2380'/" ~/.jupyter/jupyter_notebook_config.py
         
 
-#RUN pip install $PIP_PACKAGES_COMMON --upgrade
+RUN pip install $PIP_PACKAGES_COMMON --upgrade
 RUN pip install $PIP_PACKAGES_KALE --upgrade
 RUN jupyter labextension install kubeflow-kale-labextension
 
-RUN pip install --quiet "git+https://github.com/ITAM-DS/analisis-numerico-computo-cientifico.git#egg=opt&subdirectory=src"
 
 VOLUME ["/shared_volume"]
 
