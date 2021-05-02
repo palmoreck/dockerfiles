@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
     paths:
-    - jupyterlab/kale/opt/0.1/Dockerfile #path in repo to Dockerfile
+    - jupyterlab/kale/distributed/0.1/Dockerfile #path in repo to Dockerfile
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
