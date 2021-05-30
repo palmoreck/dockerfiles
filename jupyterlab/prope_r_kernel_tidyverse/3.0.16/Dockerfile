@@ -13,7 +13,7 @@ ENV PIP_PACKAGES="numpy scipy matplotlib pandas seaborn plotly sympy"
 ENV R_KEY="E298A3A825C0D65DFD57CBB651716619E084DAB9"
 ENV R_DEB_BUILD_DEPS="r-base libxml2-dev libcurl4-openssl-dev"
 ENV R_SITE_LIBRARY="/usr/local/lib/R/site-library"
-ENV R_PACKAGES="\"repr IRdisplay evaluate crayon pbdZMQ devtools uuid digest tidyverse\""
+ENV R_PACKAGES="\"repr IRdisplay evaluate crayon pbdZMQ devtools uuid digest prob tidyverse\""
 
 RUN apt update && export $DEBIAN_FRONTEND && \
     echo $TIMEZONE > /etc/timezone && apt install -y tzdata
