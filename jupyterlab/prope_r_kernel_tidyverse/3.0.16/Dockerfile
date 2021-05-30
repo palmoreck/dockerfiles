@@ -38,10 +38,11 @@ RUN jupyter notebook --generate-config && sed -i "s/#c.NotebookApp.password = .*
 
 RUN pip3 install $PIP_PACKAGES
 
-RUN sudo chmod gou+wrx $R_SITE_LIBRARY && \
-    R -e 'install.packages(strsplit($R_PACKAGES, " ")[[1]], lib="/usr/local/lib/R/site-library/")' && \
+RUN echo $R_PACKAGES >  ~/.Renviron && \
+    sudo chmod gou+w $R_SITE_LIBRARY && \
+    sudo R -e 'install.packages(strsplit(system("echo $var", intern=TRUE)," ")[[1]], lib="/usr/local/lib/R/site-library/")' && \
     R -e 'devtools::install_github("IRkernel/IRkernel")' && \
-    R -e 'IRkernel::installspec()' #or:R -e 'IRkernel::installspec(user=FALSE)' 
+    sudo R -e 'IRkernel::installspec(user=FALSE)'
 
 RUN sudo chmod gou+wx -R ~/.local
 
