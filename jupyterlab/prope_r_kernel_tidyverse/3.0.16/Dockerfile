@@ -18,7 +18,7 @@ ENV R_PACKAGES="var=\"repr IRdisplay evaluate crayon pbdZMQ devtools uuid digest
 RUN apt update && export $DEBIAN_FRONTEND && \
     echo $TIMEZONE > /etc/timezone && apt install -y tzdata
 
-RUN apt update && apt install -y $DEB_BUILD_DEPS $ DEB_PACKAGES && \
+RUN apt update && apt install -y $DEB_BUILD_DEPS $DEB_PACKAGES && \
     pip3 install --upgrade pip
 
 #R installation
