@@ -7,7 +7,7 @@ ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEB_BUILD_DEPS="gfortran python3-dev python3-pip python3-setuptools software-properties-common dirmngr"
-ENV DEB_PACKAGES="sudo nano less git nodejs curl wget htop"
+ENV DEB_PACKAGES="sudo nano less git nodejs curl wget htop libblas-dev liblapack-dev"
 ENV PIP_PACKAGES="numpy scipy matplotlib pandas seaborn plotly sympy"
 
 ENV R_KEY="E298A3A825C0D65DFD57CBB651716619E084DAB9"
