@@ -15,16 +15,16 @@ ENV R_DEB_BUILD_DEPS="focal-cran40 r-base"
 ENV R_SITE_LIBRARY="/usr/local/lib/R/site-library"
 ENV R_PACKAGES="var=\"repr IRdisplay evaluate crayon pbdZMQ devtools uuid digest prob tidyverse\""
 
-RUN apt-get update && export $DEBIAN_FRONTEND && \
-    echo $TIMEZONE > /etc/timezone && apt-get install -y tzdata
+RUN apt update && export $DEBIAN_FRONTEND && \
+    echo $TIMEZONE > /etc/timezone && apt install -y tzdata
 
-RUN apt-get update && apt-get install -y $DEB_BUILD_DEPS $DEB_PACKAGES && pip3 install --upgrade pip
+RUN apt update && apt install -y $DEB_BUILD_DEPS $DEB_PACKAGES && pip3 install --upgrade pip
 
 #R installation
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $R_KEY && \
     add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/" && \
-    apt-get update && \
-    apt-get install -yt $R_DEB_BUILD_DEPS
+    apt update && \
+    apt install -y $R_DEB_BUILD_DEPS
 
 RUN groupadd propeuser
 RUN useradd propeuser -g propeuser -m -s /bin/bash
