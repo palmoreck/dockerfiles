@@ -40,7 +40,7 @@ RUN pip3 install $PIP_PACKAGES
 
 RUN echo $R_PACKAGES >  ~/.Renviron && \
     sudo chmod gou+w $R_SITE_LIBRARY && \
-    sudo R -e 'install.packages(strsplit(system("echo $var", intern=TRUE)," ")[[1]], lib="/usr/local/lib/R/site-library/")' && \
+    R -e 'install.packages(strsplit(system("echo $var", intern=TRUE)," ")[[1]], lib="/usr/local/lib/R/site-library/")' && \
     R -e 'devtools::install_github("IRkernel/IRkernel")' && \
     sudo R -e 'IRkernel::installspec(user=FALSE)'
 
