@@ -6,7 +6,7 @@ ENV JUPYTERLAB_VERSION 3.0.16
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
-ENV DEB_BUILD_DEPS="python3-dev python3-pip python3-setuptools software-properties-common dirmngr"
+ENV DEB_BUILD_DEPS="gfortran python3-dev python3-pip python3-setuptools software-properties-common dirmngr"
 ENV DEB_PACKAGES="sudo nano less git nodejs curl wget htop"
 ENV PIP_PACKAGES="numpy scipy matplotlib pandas seaborn plotly sympy"
 
