@@ -24,7 +24,7 @@ RUN apt-get update && apt-get install -y $DEB_BUILD_DEPS $DEB_PACKAGES && pip3 i
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $R_KEY && \
     add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/" && \
     apt-get update && \
-    apt-get install -y $R_DEB_BUILD_DEPS
+    apt-get install -yt $R_DEB_BUILD_DEPS
 
 RUN groupadd propeuser
 RUN useradd propeuser -g propeuser -m -s /bin/bash
