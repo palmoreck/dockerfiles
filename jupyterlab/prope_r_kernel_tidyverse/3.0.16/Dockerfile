@@ -1,5 +1,5 @@
 #dummy line to trigger build
-FROM ubuntu:bionic
+FROM ubuntu:20.04
 
 ENV TIMEZONE America/Mexico_City
 ENV JUPYTERLAB_VERSION 3.0.16
