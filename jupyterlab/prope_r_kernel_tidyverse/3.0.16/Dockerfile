@@ -13,7 +13,7 @@ ENV PIP_PACKAGES="numpy scipy matplotlib pandas seaborn plotly sympy"
 ENV R_KEY="E298A3A825C0D65DFD57CBB651716619E084DAB9"
 ENV R_DEB_BUILD_DEPS="r-base"
 ENV R_SITE_LIBRARY="/usr/local/lib/R/site-library"
-ENV R_PACKAGES="var=\"repr IRdisplay evaluate crayon pbdZMQ devtools uuid digest prob tidyverse\""
+ENV R_PACKAGES="\"repr IRdisplay evaluate crayon pbdZMQ devtools uuid digest tidyverse\""
 
 RUN apt update && export $DEBIAN_FRONTEND && \
     echo $TIMEZONE > /etc/timezone && apt install -y tzdata
@@ -38,11 +38,10 @@ RUN jupyter notebook --generate-config && sed -i "s/#c.NotebookApp.password = .*
 
 RUN pip3 install $PIP_PACKAGES
 
-RUN echo $R_PACKAGES >  ~/.Renviron && \
-    sudo chmod gou+w $R_SITE_LIBRARY && \
-    R -e 'install.packages(strsplit(system("echo $var", intern=TRUE)," ")[[1]], lib="/usr/local/lib/R/site-library/")' && \
+RUN sudo chmod gou+wrx $R_SITE_LIBRARY && \
+    R -e 'install.packages(strsplit($R_PACKAGES, " ")[[1]], lib="/usr/local/lib/R/site-library/")' && \
     R -e 'devtools::install_github("IRkernel/IRkernel")' && \
-    sudo R -e 'IRkernel::installspec(user=FALSE)'
+    R -e 'IRkernel::installspec()' #or:R -e 'IRkernel::installspec(user=FALSE)' 
 
 RUN sudo chmod gou+wx -R ~/.local
 
