@@ -1,7 +1,7 @@
 Set:
 
 ```
-JUPYTERLAB_VERSION=1.1.0
+JUPYTERLAB_VERSION=3.0.16
 REPO_URL=palmoreck/jupyterlab
 BUILD_DIR=/home/user/midir
 ```
@@ -15,13 +15,13 @@ docker build $BUILD_DIR --force-rm -t $REPO_URL:$JUPYTERLAB_VERSION
 Run:
 
 ```
-docker run -v $(pwd):/datos --name jupyterlab-local -p 8888:8888 -d $REPO_URL:$JUPYTERLAB_VERSION
+docker run -v $(pwd):/shared_volume --name jupyterlab-local -p 8888:8888 -d $REPO_URL:$JUPYTERLAB_VERSION
 ```
 
 or:
 
 ```
-docker run --rm -v $(pwd):/datos --name jupyterlab-local -p 8888:8888 -d $REPO_URL:$JUPYTERLAB_VERSION
+docker run --rm -v $(pwd):/shared_volume --name jupyterlab-local -p 8888:8888 -d $REPO_URL:$JUPYTERLAB_VERSION
 ```
 
 ## jupyter lab running at localhost:8888 , password: qwerty
