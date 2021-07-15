@@ -1,5 +1,6 @@
 #!/bin/bash
 POSTGRESQL_VERSION=12
+RELEASE=bionic
 sudo service ssh restart
 wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - && echo "deb http://apt.postgresql.org/pub/repos/apt/ $RELEASE-pgdg main" | sudo tee  /etc/apt/sources.list.d/pgdg.list && sudo apt-get update && sudo apt-get -y install postgresql-$POSTGRESQL_VERSION
 
