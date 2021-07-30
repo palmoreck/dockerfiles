@@ -40,8 +40,8 @@ RUN jupyter notebook --generate-config && sed -i "s/# c.NotebookApp.password = .
 RUN pip3 install $PIP_PACKAGES
 
 #c kernel
-#RUN sudo chmod gou+wrx -R /usr/local/share/jupyter/kernels/
-#RUN pip3 install --user git+https://github.com/brendan-rius/jupyter-c-kernel.git && python3 ~/.local/lib/python3.7/site-packages/jupyter_c_kernel/install_c_kernel --prefix=/usr/local/
+RUN sudo chmod gou+wrx -R /usr/local/share/jupyter/kernels/
+RUN python_version=$(ls ~/.local/lib/|grep python) && pip3 install --user git+https://github.com/brendan-rius/jupyter-c-kernel.git && python3 ~/.local/lib/$python_version/site-packages/jupyter_c_kernel/install_c_kernel --prefix=/usr/local/
 
 RUN echo $R_PACKAGES >  ~/.Renviron && \
     sudo chmod gou+w $R_SITE_LIBRARY && \
@@ -50,11 +50,13 @@ RUN echo $R_PACKAGES >  ~/.Renviron && \
     sudo R -e 'IRkernel::installspec(user=FALSE)'
 
 #julia kernel
-RUN sudo mkdir /usr/local/julia-1.6.0 && cd ~ && \
-    wget https://julialang-s3.julialang.org/bin/linux/x64/1.6/julia-1.6.0-linux-x86_64.tar.gz && \
-    tar zxvf julia-1.6.0-linux-x86_64.tar.gz && \
-    sudo cp -r julia-1.6.0/* /usr/local/julia-1.6.0/ && \
-    /usr/local/julia-1.6.0/bin/julia -e 'using Pkg;Pkg.add("IJulia")'
+RUN julia_version=1.6 && julia_version_2=1.6.2 && \
+    sudo mkdir /usr/local/julia-$julia_version_2 && cd ~ && \
+    wget https://julialang-s3.julialang.org/bin/linux/x64/$julia_version/julia-$julia_version_2-linux-x86_64.tar.gz && \
+    tar zxvf julia-$julia_version_2-linux-x86_64.tar.gz && \
+    sudo cp -r julia-$julia_version_2/* /usr/local/julia-$julia_version_2/ && \
+    /usr/local/julia-$julia_version_2/bin/julia -e 'using Pkg;Pkg.add("IJulia")' && \
+    echo 'export PATH=/usr/local/julia-$julia-version/bin/:$PATH' >> $HOME/.bashrc
 #last line could also be: using IJulia;installkernel("Julia (4 threads)", env=Dict("JULIA_NUM_THREADS"=>"4"))
 
 RUN sudo chmod gou+wx -R ~/.local
