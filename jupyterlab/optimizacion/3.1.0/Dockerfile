@@ -6,7 +6,7 @@ ENV JUPYTERLAB_VERSION 3.1.0
 ENV LANG C.UTF-8
 ENV LC_ALL C.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
-ENV DEB_BUILD_DEPS="build-essential python3-dev python3-pip python3-setuptools software-properties-common libgit2-dev"
+ENV DEB_BUILD_DEPS="build-essential python3-dev python3-pip python3-setuptools software-properties-common libgit2-dev dirmngr libgmp3-dev libmpfr-dev"
 ENV DEB_PACKAGES="sudo nano less git curl wget htop"
 ENV PIP_PACKAGES="numpy scipy matplotlib pandas seaborn sympy cvxpy pytest jupyter-book jedi==0.17.2"
 
@@ -43,6 +43,7 @@ RUN pip3 install $PIP_PACKAGES
 RUN sudo chmod gou+wrx -R /usr/local/share/jupyter/kernels/
 RUN python_version=$(ls ~/.local/lib/|grep python) && pip3 install --user git+https://github.com/brendan-rius/jupyter-c-kernel.git && python3 ~/.local/lib/$python_version/site-packages/jupyter_c_kernel/install_c_kernel --prefix=/usr/local/
 
+#r kernel and packages
 RUN echo $R_PACKAGES >  ~/.Renviron && \
     sudo chmod gou+w $R_SITE_LIBRARY && \
     R -e 'install.packages(strsplit(system("echo $var", intern=TRUE)," ")[[1]], lib="/usr/local/lib/R/site-library/")' && \
