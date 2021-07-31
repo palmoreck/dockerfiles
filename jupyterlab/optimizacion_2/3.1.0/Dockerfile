@@ -21,7 +21,7 @@ RUN apt-get update && export $DEBIAN_FRONTEND && \
 RUN apt-get update && apt-get install -y $DEB_BUILD_DEPS $DEB_PACKAGES && pip3 install --upgrade pip
 
 # Install nodejs deps
-RUN curl -sL https://deb.nodesource.com/setup_12.x | sudo -E bash - && apt-get install -y nodejs
+RUN curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && apt-get install -y nodejs
 
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $R_KEY && \
     add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/" && \
@@ -32,7 +32,7 @@ RUN groupadd myuser
 RUN useradd myuser -g myuser -m -s /bin/bash
 RUN echo 'myuser ALL=(ALL:ALL) NOPASSWD:ALL' | (EDITOR='tee -a' visudo)
 RUN echo 'myuser:qwerty' | chpasswd
-RUN pip3 install jupyter jupyterlab==$JUPYTERLAB_VERSION
+RUN pip3 install jupyter jupyterlab==$JUPYTERLAB_VERSION nbconvert==6.1.0
 USER myuser
 
 RUN jupyter notebook --generate-config && sed -i "s/# c.NotebookApp.password = .*/c.NotebookApp.password = u'sha1:115e429a919f:21911277af52f3e7a8b59380804140d9ef3e2380'/" ~/.jupyter/jupyter_notebook_config.py
