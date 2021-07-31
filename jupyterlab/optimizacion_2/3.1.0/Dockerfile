@@ -60,7 +60,7 @@ RUN julia_version=1.6 && julia_version_2=1.6.2 && \
     /usr/local/julia-$julia_version_2/bin/julia -e 'using Pkg;Pkg.add("IJulia")' && \
     /usr/local/julia/bin/julia -e 'using Pkg;Pkg.add(Pkg.PackageSpec(name="JuMP", rev="master"))' && \
     /usr/local/julia/bin/julia -e 'using Pkg;Pkg.add("ECOS");Pkg.add("OSQP");Pkg.add("SCS");Pkg.add("GLPK")' && \
-    /usr/local/julia/bin/julia -e 'using Pkg;Pkg.add("Optim")'    
+    /usr/local/julia/bin/julia -e 'using Pkg;Pkg.add("Optim")' && \ 
     echo 'export PATH=/usr/local/julia-$julia-version/bin/:$PATH' >> $HOME/.bashrc
 #last line could also be: using IJulia;installkernel("Julia (4 threads)", env=Dict("JULIA_NUM_THREADS"=>"4"))
 
