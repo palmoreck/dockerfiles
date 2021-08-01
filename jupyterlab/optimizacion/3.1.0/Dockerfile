@@ -7,7 +7,7 @@ ENV LC_ALL C.UTF-8
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEB_BUILD_DEPS="build-essential python3-dev python3-pip python3-setuptools software-properties-common libgit2-dev dirmngr libgmp3-dev libmpfr-dev"
 ENV DEB_PACKAGES="sudo nano less git curl wget htop"
-ENV PIP_PACKAGES="numpy scipy matplotlib pandas seaborn sympy cvxpy pytest jupyter-book"
+ENV PIP_PACKAGES="numpy scipy matplotlib pandas seaborn sympy cvxpy pytest"
 
 ENV R_KEY="E298A3A825C0D65DFD57CBB651716619E084DAB9"
 ENV R_DEB_BUILD_DEPS="focal-cran40 r-base libssl-dev libxml2-dev libcurl4-openssl-dev"
@@ -31,7 +31,7 @@ RUN groupadd myuser
 RUN useradd myuser -g myuser -m -s /bin/bash
 RUN echo 'myuser ALL=(ALL:ALL) NOPASSWD:ALL' | (EDITOR='tee -a' visudo)
 RUN echo 'myuser:qwerty' | chpasswd
-RUN pip3 install jupyter jupyterlab==$JUPYTERLAB_VERSION nbconvert==6.1.0
+RUN pip3 install jupyter jupyterlab==$JUPYTERLAB_VERSION
 USER myuser
 
 RUN jupyter notebook --generate-config && sed -i "s/# c.NotebookApp.password = .*/c.NotebookApp.password = u'sha1:115e429a919f:21911277af52f3e7a8b59380804140d9ef3e2380'/" ~/.jupyter/jupyter_notebook_config.py
