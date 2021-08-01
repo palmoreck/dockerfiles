@@ -32,7 +32,7 @@ RUN groupadd myuser
 RUN useradd myuser -g myuser -m -s /bin/bash
 RUN echo 'myuser ALL=(ALL:ALL) NOPASSWD:ALL' | (EDITOR='tee -a' visudo)
 RUN echo 'myuser:qwerty' | chpasswd
-RUN pip3 install jupyter jupyterlab==$JUPYTERLAB_VERSION nbconvert==6.1.0
+RUN pip3 install jupyter jupyterlab==$JUPYTERLAB_VERSION
 USER myuser
 
 RUN jupyter notebook --generate-config && sed -i "s/# c.NotebookApp.password = .*/c.NotebookApp.password = u'sha1:115e429a919f:21911277af52f3e7a8b59380804140d9ef3e2380'/" ~/.jupyter/jupyter_notebook_config.py
