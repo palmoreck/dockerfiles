@@ -21,7 +21,7 @@ docker build $BUILD_DIR --force-rm -t $REPO_URL:$JUPYTERLAB_VERSION
 ```
 
 
-## Run
+## Running `jupyterlab_optimizacion_2` docker image in a docker container
 
 ```
 docker run -v $(pwd):/datos --name $CONTAINER_NAME -p 8888:8888 -d $REPO_URL:$JUPYTERLAB_VERSION
