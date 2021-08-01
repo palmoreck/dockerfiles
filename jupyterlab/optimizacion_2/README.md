@@ -21,13 +21,13 @@ docker build $BUILD_DIR --force-rm -t $REPO_URL:$JUPYTERLAB_VERSION
 ```
 
 
-Run:
+## Run
 
 ```
 docker run -v $(pwd):/datos --name $CONTAINER_NAME -p 8888:8888 -d $REPO_URL:$JUPYTERLAB_VERSION
 ```
 
-or:
+or (recommended):
 
 ```
 docker run --rm -v $(pwd):/datos --name $CONTAINER_NAME -p 8888:8888 -d $REPO_URL:$JUPYTERLAB_VERSION
