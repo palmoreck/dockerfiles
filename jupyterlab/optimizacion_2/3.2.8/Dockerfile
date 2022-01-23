@@ -50,7 +50,7 @@ RUN echo $R_PACKAGES >  ~/.Renviron && \
     sudo R -e 'IRkernel::installspec(user=FALSE)'
 
 #julia kernel and packages
-RUN julia_version=1.6 && julia_version_2=1.6.2 && \
+RUN julia_version=1.7 && julia_version_2=1.7.1 && \
     sudo mkdir /usr/local/julia-$julia_version_2 && cd ~ && \
     wget https://julialang-s3.julialang.org/bin/linux/x64/$julia_version/julia-$julia_version_2-linux-x86_64.tar.gz && \
     tar zxvf julia-$julia_version_2-linux-x86_64.tar.gz && \
