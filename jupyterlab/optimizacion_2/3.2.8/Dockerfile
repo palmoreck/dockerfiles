@@ -1,4 +1,3 @@
-#dummy line to trigger build
 FROM ubuntu:20.04
 
 ENV TIMEZONE America/Mexico_City
