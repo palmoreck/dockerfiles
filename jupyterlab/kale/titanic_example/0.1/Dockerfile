@@ -3,7 +3,7 @@ FROM palmoreck/kale_certs:0.7.0
 USER root
 ENV PIP_PACKAGES_COMMON="sklearn"
 
-RUN apt-get update && RUN pip install $PIP_PACKAGES_COMMON
+RUN apt-get update && pip install $PIP_PACKAGES_COMMON
 
 VOLUME ["/shared_volume"]
 
