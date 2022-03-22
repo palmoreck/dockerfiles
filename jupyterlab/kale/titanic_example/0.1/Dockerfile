@@ -1,5 +1,5 @@
 #dummy line to trigger build
-FROM palmoreck/kale_certs:0.7.0
+FROM palmoreck/kale_certs:0.6.1
 USER root
 ENV PIP_PACKAGES_COMMON="sklearn"
 
