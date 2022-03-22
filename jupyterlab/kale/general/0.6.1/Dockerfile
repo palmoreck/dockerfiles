@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV DEB_BUILD_DEPS="python3-dev python3-pip python3-setuptools"
 ENV DEB_PACKAGES="sudo nano less git wget curl ca-certificates"
 ENV PIP_PACKAGES_COMMON="numpy scipy pandas matplotlib seaborn"
-ENV PIP_PACKAGES_KALE="kubeflow-kale==0.7.0"
+ENV PIP_PACKAGES_KALE="kubeflow-kale==0.6.1"
 ENV JUPYTERLAB="jupyter-client==5.3.4 jupyterlab==2.3.2 qtconsole==5.2.1 nbconvert==5.6.1 jupyter-console==6.4.0 ipykernel==6.6.0 MarkupSafe==2.0.1"
 
 RUN apt-get update && export $DEBIAN_FRONTEND && \
@@ -25,7 +25,7 @@ RUN jupyter notebook --generate-config && \
 
 RUN pip3 install $PIP_PACKAGES_COMMON
 RUN pip3 install $PIP_PACKAGES_KALE
-RUN jupyter labextension install kubeflow-kale-labextension@0.7.0
+RUN jupyter labextension install kubeflow-kale-labextension@0.6.1
 
 VOLUME ["/shared_volume"]
 
