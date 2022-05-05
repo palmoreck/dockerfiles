@@ -1,5 +1,5 @@
 ```
-docker build . -t palmoreck/streamlit:1.8.1
+docker build 1.8.1/ -t palmoreck/streamlit:1.8.1
 ```
 
 ```
