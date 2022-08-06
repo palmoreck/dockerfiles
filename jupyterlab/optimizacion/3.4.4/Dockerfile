@@ -11,7 +11,7 @@ ENV DEB_PACKAGES="sudo nano less git curl wget htop"
 ENV PIP_PACKAGES="numpy scipy matplotlib pandas seaborn sympy cvxpy cvxopt pytest"
 
 ENV R_KEY="E298A3A825C0D65DFD57CBB651716619E084DAB9"
-ENV R_DEB_BUILD_DEPS="r-base libgit2-dev dirmngr libgmp3-dev libmpfr-dev libssl-dev libxml2-dev libcurl4-openssl-dev libfontconfig1-dev libharfbuzz-dev  libfribidi-dev"
+ENV R_DEB_BUILD_DEPS="r-base libgit2-dev dirmngr libgmp3-dev libmpfr-dev libssl-dev libxml2-dev libcurl4-openssl-dev libfontconfig1-dev libharfbuzz-dev  libfribidi-dev libfreetype6-dev libpng-dev libtiff5-dev libjpeg-dev"
 ENV R_SITE_LIBRARY="/usr/local/lib/R/site-library"
 ENV R_PACKAGES="var=\"repr IRdisplay evaluate crayon pbdZMQ uuid digest CVXR tidyverse\""
 
