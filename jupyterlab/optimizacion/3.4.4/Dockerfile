@@ -11,9 +11,9 @@ ENV DEB_PACKAGES="sudo nano less git curl wget htop"
 ENV PIP_PACKAGES="numpy scipy matplotlib pandas seaborn sympy cvxpy cvxopt pytest"
 
 ENV R_KEY="E298A3A825C0D65DFD57CBB651716619E084DAB9"
-ENV R_DEB_BUILD_DEPS="focal-cran40 r-base libssl-dev libxml2-dev libcurl4-openssl-dev"
+ENV R_DEB_BUILD_DEPS="r-base libssl-dev libxml2-dev libcurl4-openssl-dev"
 ENV R_SITE_LIBRARY="/usr/local/lib/R/site-library"
-ENV R_PACKAGES="var=\"repr IRdisplay evaluate crayon pbdZMQ devtools uuid digest CVXR tidyverse\""
+ENV R_PACKAGES="var=\"pkgdown repr IRdisplay evaluate crayon pbdZMQ devtools uuid digest CVXR tidyverse\""
 
 RUN apt-get update && export $DEBIAN_FRONTEND && \
     echo $TIMEZONE > /etc/timezone && apt-get install -y tzdata
@@ -26,7 +26,7 @@ RUN curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && apt-get i
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $R_KEY && \
     add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/" && \
     apt-get update && \
-    apt-get install -yt $R_DEB_BUILD_DEPS
+    apt install -y --no-install-recommends $R_DEB_BUILD_DEPS
 
 RUN groupadd myuser
 RUN useradd myuser -g myuser -m -s /bin/bash
