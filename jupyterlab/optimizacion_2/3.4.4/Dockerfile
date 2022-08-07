@@ -28,7 +28,7 @@ RUN curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash - && apt-get i
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys $R_KEY && \
     add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu focal-cran40/" && \
     apt-get update && \
-    apt-get install -yt $R_DEB_BUILD_DEPS
+    apt install -y --no-install-recommends $R_DEB_BUILD_DEPS
 
 RUN groupadd myuser
 RUN useradd myuser -g myuser -m -s /bin/bash
