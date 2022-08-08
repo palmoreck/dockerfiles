@@ -8,7 +8,7 @@ on:
   push:
     branches: [ master ]
     paths:
-    - jupyterlab/optimizacion_2/3.4.4/Dockerfile #path in repo to Dockerfile
+    - jupyterlab/optimizacion_2/3.4.3/Dockerfile #path in repo to Dockerfile
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -35,7 +35,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: .
-          file: jupyterlab/optimizacion_2/3.4.4/Dockerfile #path in repo to Dockerfile
+          file: jupyterlab/optimizacion_2/3.4.3/Dockerfile #path in repo to Dockerfile
           platforms: linux/amd64
           push: true
-          tags: palmoreck/jupyterlab_optimizacion_2:3.4.4
+          tags: palmoreck/jupyterlab_optimizacion_2:3.4.3
