@@ -1,7 +1,7 @@
 Set:
 
 ```
-JUPYTERLAB_VERSION=3.2.8
+JUPYTERLAB_VERSION=3.4.3
 REPO_URL=palmoreck/jupyterlab_optimizacion_2
 DIR=/home/<user>/<midir>/dockerfiles/ #path where this git repository is cloned, example: /home/user/dockerfiles
 BUILD_DIR=$DIR/jupyterlab/optimizacion_2/$JUPYTERLAB_VERSION
